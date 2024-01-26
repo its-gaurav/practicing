@@ -1,6 +1,6 @@
 /**
+ *
  * SharedResource.java
-
  */
 package lockfreeconcurrency.withoutconcurrency;
 
