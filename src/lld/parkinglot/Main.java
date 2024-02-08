@@ -29,7 +29,6 @@ public class Main {
         ParkingSpotManager twoWheelerSpotManager = new TwoWheelerSpotManager(twoWheelerSpots, defaultParkingStrategy);
         ParkingSpotManagerFactory parkingSpotManagerFactory = new ParkingSpotManagerFactory(twoWheelerSpotManager, fourWheelerSpotManager);
         EntryGate entryGate = new EntryGate(parkingSpotManagerFactory);
-        ExitGate exitGate = new ExitGate();
 
         Vehicle maruti800 = new FourWheeler("maruti800", VehicleType.FOUR_WHLR, "hx-1234");
         Vehicle sonet = new FourWheeler("kia-sonet", VehicleType.FOUR_WHLR, "hx-5678");
@@ -37,25 +36,31 @@ public class Main {
         Vehicle hness = new TwoWheeler("honda-hness", VehicleType.TWO_WHLR, "hx-2435");
         Vehicle himalayn = new TwoWheeler("himayan-425", VehicleType.TWO_WHLR, "hx-5282");
 
+        PaymentServiceFactory paymentServiceFactory = new PaymentServiceFactory();
+        ExitGate exitGate = new ExitGate(paymentServiceFactory);
+
         ParkingSpot parkingSpot = entryGate.findParkingSpot(maruti800);
         Ticket ticket = entryGate.parkVehicle(parkingSpot, maruti800);
-        exitGate.calculateFare(ticket);
+        double fareCalculated = exitGate.calculateFare(ticket);
+        exitGate.processPayment(fareCalculated, PaymentType.CARD);
 
         parkingSpot = entryGate.findParkingSpot(sonet);
         ticket = entryGate.parkVehicle(parkingSpot, sonet);
-        exitGate.calculateFare(ticket);
+        fareCalculated = exitGate.calculateFare(ticket);
+        exitGate.processPayment(fareCalculated, PaymentType.CARD);
 
         parkingSpot = entryGate.findParkingSpot(meteor);
         ticket = entryGate.parkVehicle(parkingSpot, meteor);
-        exitGate.calculateFare(ticket);
+        fareCalculated = exitGate.calculateFare(ticket);
+        exitGate.processPayment(fareCalculated, PaymentType.UPI);
 
         parkingSpot = entryGate.findParkingSpot(hness);
         ticket = entryGate.parkVehicle(parkingSpot, hness);
-        exitGate.calculateFare(ticket);
+        fareCalculated = exitGate.calculateFare(ticket);
+        exitGate.processPayment(fareCalculated, PaymentType.CASH);
 
         parkingSpot = entryGate.findParkingSpot(himalayn);
         ticket = entryGate.parkVehicle(parkingSpot, himalayn);
-        exitGate.calculateFare(ticket);
 
         // all 2-wheeler spots status
         for (ParkingSpot spot: twoWheelerSpotManager.getParkingSpots()){
@@ -65,6 +70,16 @@ public class Main {
         for (ParkingSpot spot: fourWheelerSpotManager.getParkingSpots()){
             System.out.println(spot);
         }
+
+        fareCalculated = exitGate.calculateFare(ticket);
+        exitGate.processPayment(fareCalculated, PaymentType.UPI);
+        exitGate.freeParkingSpot(ticket.getParkingSpot());
+
+        // all 2-wheeler spots status
+        for (ParkingSpot spot: twoWheelerSpotManager.getParkingSpots()){
+            System.out.println(spot);
+        }
+
 
     }
 }
