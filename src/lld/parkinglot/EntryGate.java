@@ -16,10 +16,13 @@ public class EntryGate {
         return availableSpot;
     }
 
-    public Ticket issueTicket(ParkingSpot parkingSpot, Vehicle vehicle) {
-        parkingSpot.setEmpty(false);
-        parkingSpot.setParkedVehicle(vehicle);
-        Ticket ticket = new Ticket(LocalDateTime.now(), parkingSpot);
-        return ticket;
+    public Ticket parkVehicle(ParkingSpot parkingSpot, Vehicle vehicle) {
+        ParkingSpotManager parkingSpotManager = parkingSpotManagerFactory.getParkingSpotManager(vehicle.getType());
+        parkingSpotManager.parkVehicle(parkingSpot, vehicle);
+        return issueTicket(parkingSpot);
+    }
+
+    private static Ticket issueTicket(ParkingSpot parkingSpot) {
+        return new Ticket(LocalDateTime.now(), parkingSpot);
     }
 }

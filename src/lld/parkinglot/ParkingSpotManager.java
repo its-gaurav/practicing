@@ -10,4 +10,6 @@ public interface ParkingSpotManager {
     List<ParkingSpot> getParkingSpots();
 
     ParkingSpot findAvailableParkingSpot();
+
+    void parkVehicle(ParkingSpot parkingSpot, Vehicle vehicle);
 }

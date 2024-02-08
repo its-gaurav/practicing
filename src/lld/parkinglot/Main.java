@@ -14,7 +14,8 @@ public class Main {
         fourWheelerSpots.add(b1);
         fourWheelerSpots.add(b2);
         fourWheelerSpots.add(b3);
-        ParkingSpotManager fourWheelerSpotManager = new FourWheelerSpotManager(fourWheelerSpots);
+        ParkingStrategy nearToExitStrategy = new NearToExitParkingStrategy();
+        ParkingSpotManager fourWheelerSpotManager = new FourWheelerSpotManager(fourWheelerSpots, nearToExitStrategy);
 
         // two-wheeler spots
         ParkingSpot a1 = new TwoWheelerSpot();
@@ -24,7 +25,8 @@ public class Main {
         twoWheelerSpots.add(a1);
         twoWheelerSpots.add(a2);
         twoWheelerSpots.add(a3);
-        ParkingSpotManager twoWheelerSpotManager = new TwoWheelerSpotManager(twoWheelerSpots);
+        ParkingStrategy defaultParkingStrategy = new DefaultParkingStrategy();
+        ParkingSpotManager twoWheelerSpotManager = new TwoWheelerSpotManager(twoWheelerSpots, defaultParkingStrategy);
         ParkingSpotManagerFactory parkingSpotManagerFactory = new ParkingSpotManagerFactory(twoWheelerSpotManager, fourWheelerSpotManager);
         EntryGate entryGate = new EntryGate(parkingSpotManagerFactory);
         ExitGate exitGate = new ExitGate();
@@ -36,23 +38,23 @@ public class Main {
         Vehicle himalayn = new TwoWheeler("himayan-425", VehicleType.TWO_WHLR, "hx-5282");
 
         ParkingSpot parkingSpot = entryGate.findParkingSpot(maruti800);
-        Ticket ticket = entryGate.issueTicket(parkingSpot, maruti800);
+        Ticket ticket = entryGate.parkVehicle(parkingSpot, maruti800);
         exitGate.calculateFare(ticket);
 
         parkingSpot = entryGate.findParkingSpot(sonet);
-        ticket = entryGate.issueTicket(parkingSpot, sonet);
+        ticket = entryGate.parkVehicle(parkingSpot, sonet);
         exitGate.calculateFare(ticket);
 
         parkingSpot = entryGate.findParkingSpot(meteor);
-        ticket = entryGate.issueTicket(parkingSpot, meteor);
+        ticket = entryGate.parkVehicle(parkingSpot, meteor);
         exitGate.calculateFare(ticket);
 
         parkingSpot = entryGate.findParkingSpot(hness);
-        ticket = entryGate.issueTicket(parkingSpot, hness);
+        ticket = entryGate.parkVehicle(parkingSpot, hness);
         exitGate.calculateFare(ticket);
 
         parkingSpot = entryGate.findParkingSpot(himalayn);
-        ticket = entryGate.issueTicket(parkingSpot, himalayn);
+        ticket = entryGate.parkVehicle(parkingSpot, himalayn);
         exitGate.calculateFare(ticket);
 
         // all 2-wheeler spots status
