@@ -1,4 +1,7 @@
-package lld.parkinglot;
+package lld.parkinglot.service;
+
+import lld.parkinglot.ParkingSpot;
+import lld.parkinglot.Vehicle;
 
 import java.util.List;
 

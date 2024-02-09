@@ -1,4 +1,6 @@
-package lld.parkinglot;
+package lld.parkinglot.service;
+
+import lld.parkinglot.VehicleType;
 
 public class ParkingSpotManagerFactory {
 

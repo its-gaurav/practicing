@@ -1,12 +1,16 @@
-package lld.parkinglot;
+package lld.parkinglot.service;
+
+import lld.parkinglot.ParkingSpot;
+import lld.parkinglot.Vehicle;
 
 import java.util.List;
 
-public class FourWheelerSpotManager implements ParkingSpotManager {
+public class TwoWheelerSpotManager implements ParkingSpotManager{
+
     private List<ParkingSpot> parkingSpots;
     private ParkingStrategy parkingStrategy;
 
-    public FourWheelerSpotManager(List<ParkingSpot> parkingSpots, ParkingStrategy parkingStrategy) {
+    public TwoWheelerSpotManager(List<ParkingSpot> parkingSpots, ParkingStrategy parkingStrategy) {
         this.parkingSpots = parkingSpots;
         this.parkingStrategy = parkingStrategy;
     }
@@ -21,6 +25,7 @@ public class FourWheelerSpotManager implements ParkingSpotManager {
         parkingSpots.remove(parkingSpot);
     }
 
+    @Override
     public List<ParkingSpot> getParkingSpots() {
         return parkingSpots;
     }

@@ -1,4 +1,4 @@
-package lld.parkinglot;
+package lld.parkinglot.service;
 
 public class CardPaymentService implements PaymentService {
     @Override

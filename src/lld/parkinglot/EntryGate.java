@@ -1,5 +1,8 @@
 package lld.parkinglot;
 
+import lld.parkinglot.service.ParkingSpotManager;
+import lld.parkinglot.service.ParkingSpotManagerFactory;
+
 import java.time.LocalDateTime;
 
 public class EntryGate {

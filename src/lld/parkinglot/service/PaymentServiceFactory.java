@@ -1,4 +1,6 @@
-package lld.parkinglot;
+package lld.parkinglot.service;
+
+import lld.parkinglot.PaymentType;
 
 import java.util.HashMap;
 import java.util.Map;
