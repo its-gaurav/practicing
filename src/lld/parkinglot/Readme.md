@@ -7,5 +7,5 @@ Requirements And Assumptions:
 5. Customer can pay via Cash, Card or UPI.
 6. Parking spot can be added and removed.
 7. Two kinds of parking strategy to be followed which are:
-   8. Close to exit gate : 4-wheelers have to be parked close to exit gate
-   9. default : 2-wheelers have to be parked wherever space is available
+     * Close to exit gate : 4-wheelers have to be parked close to exit gate
+     * default : 2-wheelers have to be parked wherever space is available
