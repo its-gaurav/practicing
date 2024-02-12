@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class PlatformManager implements Platform {
 
@@ -131,6 +130,10 @@ public class PlatformManager implements Platform {
     @Override
     public void cancelBooking(BookingDetail bookingDetail) {
         bookingDetail.setActive(false);
+        System.out.println("Cancellation is done");
+        Vendor vendor = (Vendor) bookingDetail.getArena().getOwnedBy();
+        double amountToBeRefunded = vendor.getCancellationStrategy().calculateRefundAmount(bookingDetail);
+        System.out.println(amountToBeRefunded + " will be refunded to source account");
     }
 
     @Override
