@@ -1,8 +1,8 @@
 /**
- * MobileObservable.java
+ * LaptopObservable.java
 
  */
-package stockobserver;
+package observer.stockobserver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +13,11 @@ import java.util.List;
  * @since OpenJDK 17
  */
 
-public class MobileObservable extends Observable {
+public class WashingMachineObservable extends Observable{
 
     private List<Observer> observerList;
 
-    public MobileObservable(String identifier, String brandName, String modelName, boolean isStockAvailable) {
+    public WashingMachineObservable(String identifier, String brandName, String modelName, boolean isStockAvailable) {
         this.identifier = identifier;
         this.brandName = brandName;
         this.modelName = modelName;
@@ -38,7 +38,6 @@ public class MobileObservable extends Observable {
     @Override
     void updateStockStatus(boolean isStockAvailable) {
         this.isStockAvailable = isStockAvailable;
-        System.out.println("stock status is "+isStockAvailable);
         if (isStockAvailable) {
             notifyAllObservers();
         }
@@ -50,4 +49,6 @@ public class MobileObservable extends Observable {
             observer.sendAlert(this);
         });
     }
+
+
 }

@@ -2,7 +2,7 @@
  * MobilePhoneObserver.java
 
  */
-package stockobserver;
+package observer.stockobserver;
 
 /**
  * @author gauravraj01

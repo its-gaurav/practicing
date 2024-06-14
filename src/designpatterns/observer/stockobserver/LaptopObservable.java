@@ -2,7 +2,7 @@
  * LaptopObservable.java
 
  */
-package stockobserver;
+package observer.stockobserver;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,7 +2,7 @@
  * Observable.java
 
  */
-package stockobserver;
+package observer.stockobserver;
 
 
 /**

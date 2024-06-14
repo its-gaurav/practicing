@@ -2,7 +2,7 @@
  * Observer.java
 
  */
-package observer;
+package observer.temperatureobserver;
 
 /**
  * @author gauravraj01

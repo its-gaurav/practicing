@@ -2,7 +2,7 @@
  * MobileScreen.java
 
  */
-package observer;
+package observer.temperatureobserver;
 
 /**
  * @author gauravraj01

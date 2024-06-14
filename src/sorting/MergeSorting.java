@@ -49,7 +49,5 @@ public class MergeSorting {
         for (int i=0; i<k; i++) {
             input[low+i] = tmp[i];
         }
-
-
     }
 }

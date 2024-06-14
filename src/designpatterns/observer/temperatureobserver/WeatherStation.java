@@ -1,7 +1,7 @@
 /**
  * WeatherStation.java
  */
-package observer;
+package observer.temperatureobserver;
 
 import java.util.ArrayList;
 import java.util.List;
