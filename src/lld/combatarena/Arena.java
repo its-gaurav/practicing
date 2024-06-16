@@ -19,30 +19,20 @@ public class Arena {
         Random random = new Random();
         while(p1.getHealth()>0 && p2.getHealth()>0) {
             int turn = random.nextInt(2);
-            int attackValue;
-            int defendValue;
-            int healthAffected;
-            if (turn == 0) { // p1 attacks
-                attackValue = p1.attack();
-                defendValue = p2.defend();
-                healthAffected = attackValue > defendValue ? attackValue - defendValue : 0;
-                System.out.println(p1.getId()+" Attacks,"+" NetDamage: "+healthAffected);
-                int newHealth = (healthAffected <= p2.getHealth()) ? p2.getHealth() - healthAffected : 0;
-                p2.setHealth(newHealth);
-            } else { // p2 attacks
-                attackValue = p2.attack();
-                defendValue = p1.defend();
-                healthAffected = attackValue > defendValue ? attackValue - defendValue : 0;
-                System.out.println(p2.getId()+" Attacks,"+" NetDamage: "+healthAffected);
-                int newHealth = (healthAffected <= p1.getHealth()) ? p1.getHealth() - healthAffected : 0;
-                p1.setHealth(newHealth);
-            }
+            Player attackingPlayer = (turn == 0) ? p1 : p2;
+            Player defendingPlayer = attackingPlayer == p1 ? p2 : p1;
+            int attackValue = attackingPlayer.attack();
+            int defendValue = defendingPlayer.defend();
+            int healthAffected = attackValue > defendValue ? attackValue - defendValue : 0;
+            System.out.println(attackingPlayer.getId()+" Attacks,"+" NetDamage: "+healthAffected);
+            int newHealth = (healthAffected <= defendingPlayer.getHealth()) ? defendingPlayer.getHealth() - healthAffected : 0;
+            defendingPlayer.setHealth(newHealth);
         }
 
         if (p1.getHealth() == 0) {
-            System.out.println("Game Is Over." +p2.getId()+" wins"+", health : "+p2.getHealth());
+            System.out.println("Game Is Over. " +p2.getId()+" wins"+", health : "+p2.getHealth());
         } else {
-            System.out.println("Game Is Over." +p1.getId()+" wins"+", health : "+p1.getHealth());
+            System.out.println("Game Is Over. " +p1.getId()+" wins"+", health : "+p1.getHealth());
         }
     }
 }
