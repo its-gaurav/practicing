@@ -35,24 +35,19 @@ public class RideSharingUtil {
         RideDetails ride6 = rideSharingApplication.offerRide("Bangalore", "Pune", "KA-01-12345", rohan, 1);
 
         rideSharingApplication.selectRide(
-                "Bangalore", "Mysore", nandini, 1, null,
-                new SelectByMostVacant(rideSharingApplication.getOfferedRides()));
+                "Bangalore", "Mysore", nandini, 1, null);
 
         rideSharingApplication.selectRide(
-                "Bangalore", "Mysore", gaurav, 1, "Activa",
-                new SelectByModel(rideSharingApplication.getOfferedRides()));
+                "Bangalore", "Mysore", gaurav, 1, "Activa");
 
         rideSharingApplication.selectRide(
-                "Mumbai", "Bangalore", shashank, 1, null,
-                new SelectByMostVacant(rideSharingApplication.getOfferedRides()));
+                "Mumbai", "Bangalore", shashank, 1, null);
 
         rideSharingApplication.selectRide(
-                "Hyderabad", "Bangalore", rohan, 1, "Baleno",
-                new SelectByModel(rideSharingApplication.getOfferedRides()));
+                "Hyderabad", "Bangalore", rohan, 1, "Baleno");
 
         rideSharingApplication.selectRide(
-                "Hyderabad", "Bangalore", shashank, 1, "Polo",
-                new SelectByModel(rideSharingApplication.getOfferedRides()));
+                "Hyderabad", "Bangalore", shashank, 1, "Polo");
 
         rideSharingApplication.endRide(ride1);
         rideSharingApplication.endRide(ride2);

@@ -8,10 +8,13 @@ public class RideSharingApplication {
     private List<RideDetails> requestedRides;
     private List<User> users;
 
+    private RideSelectionFactory rideSelectionFactory;
+
     public RideSharingApplication() {
         offeredRides = new ArrayList<>();
         requestedRides = new ArrayList<>();
         users = new ArrayList<>();
+        rideSelectionFactory = new RideSelectionFactory();
     }
 
     public void addUser(User user) {
@@ -42,8 +45,10 @@ public class RideSharingApplication {
         return null;
     }
 
-    public void selectRide(String origin, String destination,  User requestedBy, int numberOfSeatsRequested, String preferredModel, SelectionStrategy selectionStrategy) {
-        selectionStrategy.selectRide(new RideDetails(origin, destination, numberOfSeatsRequested, preferredModel, requestedBy));
+    public void selectRide(String origin, String destination,  User requestedBy, int numberOfSeatsRequested, String preferredModel) {
+        rideSelectionFactory
+                .getSelectionStrategy(this.offeredRides, preferredModel)
+                .selectRide(new RideDetails(origin, destination, numberOfSeatsRequested, preferredModel, requestedBy));
     }
 
     public List<RideDetails> getOfferedRides() {
