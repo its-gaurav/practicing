@@ -6,7 +6,9 @@ public class QueueUtil {
         integerMyQueue.enQueue(3);
         integerMyQueue.enQueue(5);
         integerMyQueue.enQueue(12);
+        integerMyQueue.deQueue();
         integerMyQueue.enQueue(9);
+        integerMyQueue.deQueue();
         integerMyQueue.enQueue(6);
 
         MyQueue<String> stringMyQueue = new MyQueue<>();
