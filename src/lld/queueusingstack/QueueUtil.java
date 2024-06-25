@@ -1,5 +1,7 @@
 package lld.queueusingstack;
 
+import java.util.HashMap;
+
 public class QueueUtil {
     public static void main(String[] args) {
         MyQueue<Integer> integerMyQueue = new MyQueue<>();
