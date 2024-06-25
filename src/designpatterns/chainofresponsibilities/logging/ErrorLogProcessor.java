@@ -1,11 +1,8 @@
 package chainofresponsibilities.logging;
 
 public class ErrorLogProcessor extends LogProcessor {
-
-    private final LogProcessor nextLogProcessor;
-
     public ErrorLogProcessor(LogProcessor nextLogProcessor) {
-        this.nextLogProcessor = nextLogProcessor;
+        super(nextLogProcessor);
     }
 
     @Override
@@ -13,7 +10,7 @@ public class ErrorLogProcessor extends LogProcessor {
         if (ERROR == logLevel) {
             System.out.println("ERROR: "+message);
         } else {
-            throw new RuntimeException("Not A Valid Log Level");
+            super.log(logLevel, message);
         }
     }
 }

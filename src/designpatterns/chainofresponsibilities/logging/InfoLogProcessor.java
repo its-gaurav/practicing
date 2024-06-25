@@ -1,12 +1,9 @@
 package chainofresponsibilities.logging;
 
-public class InfoLogProcessor extends LogProcessor{
-
-    private final LogProcessor nextLogProcessor;
+public class InfoLogProcessor extends LogProcessor {
 
     public InfoLogProcessor(LogProcessor nextLogProcessor) {
-        super();
-        this.nextLogProcessor = nextLogProcessor;
+        super(nextLogProcessor);
     }
 
     @Override
@@ -14,7 +11,7 @@ public class InfoLogProcessor extends LogProcessor{
         if (INFO == logLevel) {
             System.out.println("INFO: "+message);
         } else {
-            this.nextLogProcessor.log(logLevel, message);
+            super.log(logLevel, message);
         }
     }
 }

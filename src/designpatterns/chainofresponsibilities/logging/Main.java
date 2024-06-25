@@ -2,7 +2,9 @@ package chainofresponsibilities.logging;
 
 public class Main {
     public static void main(String[] args) {
-        LogProcessor logProcessor = new InfoLogProcessor(new DebugLogProcessor(new ErrorLogProcessor(null)));
+        LogProcessor logProcessor = new InfoLogProcessor(
+                new DebugLogProcessor(
+                        new ErrorLogProcessor(null)));
 
         logProcessor.log(LogProcessor.INFO, "Logging Info for method");
         logProcessor.log(LogProcessor.DEBUG, "Need to debug this");

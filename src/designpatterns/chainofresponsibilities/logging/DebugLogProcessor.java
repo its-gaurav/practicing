@@ -1,11 +1,9 @@
 package chainofresponsibilities.logging;
 
 public class DebugLogProcessor extends LogProcessor {
-    private final LogProcessor nextLogProcessor;
 
     public DebugLogProcessor(LogProcessor nextLogProcessor) {
-        super();
-        this.nextLogProcessor = nextLogProcessor;
+        super(nextLogProcessor);
     }
 
     @Override
@@ -13,7 +11,7 @@ public class DebugLogProcessor extends LogProcessor {
         if (DEBUG == logLevel) {
             System.out.println("DEBUG: "+message);
         } else {
-            this.nextLogProcessor.log(logLevel, message);
+            super.log(logLevel, message);
         }
     }
 }
