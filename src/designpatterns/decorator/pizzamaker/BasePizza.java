@@ -2,7 +2,7 @@
  * BasePizza.java
 
  */
-package decorator;
+package decorator.pizzamaker;
 
 /**
  * @author gauravraj01

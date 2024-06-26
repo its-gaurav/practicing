@@ -1,11 +1,11 @@
 /**
  * Main.java
  */
-package decorator;
+package decorator.pizzamaker;
 
-import decorator.toppings.ExtraCapsicum;
-import decorator.toppings.ExtraCheese;
-import decorator.toppings.ExtraOlives;
+import decorator.pizzamaker.toppings.ExtraCapsicum;
+import decorator.pizzamaker.toppings.ExtraCheese;
+import decorator.pizzamaker.toppings.ExtraOlives;
 
 /**
  * @author gauravraj01

@@ -2,9 +2,9 @@
  * ExtraCapsicum.java
 
  */
-package decorator.toppings;
+package decorator.pizzamaker.toppings;
 
-import decorator.BasePizza;
+import decorator.pizzamaker.BasePizza;
 
 /**
  * @author gauravraj01
