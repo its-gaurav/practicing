@@ -1,4 +1,4 @@
-package chainofresponsibilities.logging;
+package lld.logging;
 
 public class InfoLogProcessor extends LogProcessor {
 

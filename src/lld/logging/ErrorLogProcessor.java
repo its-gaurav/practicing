@@ -1,4 +1,4 @@
-package chainofresponsibilities.logging;
+package lld.logging;
 
 public class ErrorLogProcessor extends LogProcessor {
     public ErrorLogProcessor(LogProcessor nextLogProcessor) {
